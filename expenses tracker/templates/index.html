@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>lsit</title>
+</head>
+<body>
+    <header>
+        <h1>the to du list</h1>
+        <div class="grey-block">
+
+        </div>
+    </header>
+    <main>
+        <div class="the-table">
+            <form>
+                <input type="text" placeholder="whats needed to be done" id="input-task">
+                <button type="submit" id="add-button">Add</button>
+            </form>
+            <table>
+                <thead>
+                    <th>Done</th>
+                    <th>Task</th>
+                    <th>Actions</th>
+                </thead>
+                <tr class="task-row">
+                    <td class="done"><input type="checkbox"></td>
+                    <td class="task"></td>
+                    <td class="actions"></td>
+                </tr>
+            </table>
+        </div>
+        <tbody id="tbody"></tbody>
+    </main>
+    <footer>
+        
+    </footer>
+    <script src="static/index.js"></script>
+</body>
+</html>
