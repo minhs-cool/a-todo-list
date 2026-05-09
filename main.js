@@ -1,0 +1,57 @@
+let btn = document.getElementById("btn");
+let tableBody = document.getElementById("table");
+let form = document.getElementById('form_data')
+let clear_button = document.querySelector('.clear-button')
+let filter_dropdown = document.getElementById('filter')
+let filter_state = filter_dropdown.value
+
+let expenses = []
+
+function sort_rows(sort_by) {
+    if (sort_by == 'Date') {
+
+    } else if (sort_by == 'Cost') {
+
+    }
+}
+
+btn.addEventListener("click", function(){
+    let item = form.elements.myitem.value;
+    let date = form.elements.date.value;
+    let cost = form.elements.cost.value;
+    let category = form.elements.category;
+    let label = category.options[category.selectedIndex].text
+
+    let row = document.createElement('tr');
+    row.className = 'row'
+    for (let i of [item, date, cost, label]){
+        let data = document.createElement('td')
+        data.textContent = i;
+        row.appendChild(data);
+    }
+
+    tableBody.appendChild(row);
+
+    row.addEventListener('mousedown', function() {
+        if (row.className == 'row') {
+            row.className = 'row-checked'
+        } else {
+            row.className = 'row'
+        }
+    })
+});
+
+clear_button.addEventListener('click', function() {
+    for (let i = tableBody.children.length-1;i>-1;i--) {
+        row = tableBody.children[i]
+        if (row.className == 'row-checked') {
+            row.remove()
+        }
+    }
+})
+
+
+filter_dropdown.addEventListener('change', function() {
+    filter_state = filter_dropdown.value
+    console.log(filter_state)
+})
